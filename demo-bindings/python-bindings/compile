@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+echo "working directory $(pwd)"
+echo "python needs no compilation"
