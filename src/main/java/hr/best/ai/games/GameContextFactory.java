@@ -3,7 +3,6 @@ package hr.best.ai.games;
 import hr.best.ai.games.conway.gamestate.CellType;
 import hr.best.ai.games.conway.gamestate.ConwayGameState;
 import hr.best.ai.games.conway.gamestate.Rulesets.*;
-import hr.best.ai.games.sum.SumState;
 import hr.best.ai.gl.GameContext;
 import hr.best.ai.gl.State;
 import org.apache.commons.lang3.tuple.Pair;
@@ -13,13 +12,10 @@ import org.apache.commons.lang3.tuple.Triple;
  * Utility class. Creates game context with default parameters.
  */
 public class GameContextFactory {
-	
+
     private GameContextFactory() {
     }
 
-    public static GameContext getSumGameInstance() {
-        return new GameContext(new SumState(0), 2);
-    }
     public static ConwayGameState.Builder getBasicGrid() {
         return ConwayGameState.newBuilder(10,15)
                 .setCell(4,5, CellType.P1)
@@ -77,13 +73,13 @@ public class GameContextFactory {
 
 
     public static GameContext getConwayGameInstance() {
-    	
+
     	//TODO this is just for now
         State state = getBasicGrid()
                 .setFromEmpty(Ruleset1::fromEmpty)
                 .setFromOccupied(Ruleset1::fromOccupied)
                 .getState();
-        
+
         return new GameContext(state, 2);
     }
 
